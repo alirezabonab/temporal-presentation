@@ -339,18 +339,26 @@ async function interact(client: Client, workflowId: string) {
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
 <!-- .slide: data-background-color="#5b2679" -->
 
-# Temporal vs Bull  
+# Bull  
 
 - Bull "jobs" are short-lived.  
-- Temporal Workflows can run for days, handle retries, timers, signals.  
-- Perfect for long-running business processes (like loan application).  
-- In Bull, retry/backoff logic runs in worker memory; in Temporal, it’s **managed by the server** (survives restarts).  
+- In Bull, retry/backoff logic runs in worker memory.  
 - Bull queues only know about jobs; Temporal keeps **durable workflow state + history**.  
-- Temporal allows **step-by-step orchestration** (fan-out, waiting, compensation).  
 - Bull requires custom code for progress updates; Temporal offers **Signals (write)** and **Queries (read)**.  
-- Temporal activities are **idempotent & retried automatically**, Bull retries are simpler but less robust.  
-- Temporal supports **built-in cron & schedules** across workflows.  
-- Temporal has strong **type-safety** and clear API contracts (TS SDK).  
+
+
+---
+
+<!-- ## Slide (Section: temporal-typescript-onboarding) -->
+<!-- .slide: data-background-color="#5b2679" -->
+
+# Temporal
+
+- Temporal is perfect for long-running business processes or state machines.  
+- Temporal Workflows can run for days, handle retries, timers, signals.  
+- Temporal allows **step-by-step orchestration** (fan-out, waiting, compensation).  
+- Temporal activities are **idempotent & retried automatically**, Bull retries are simpler but less robust. 
+- Temporal supports **built-in cron & schedules** across workflows.   
 - Temporal scales horizontally with many workers in different languages.  
 - Temporal UI provides **workflow history + debugging**, Bull has limited introspection.  
 - Temporal can **continue workflows across versions** (workflow versioning).  

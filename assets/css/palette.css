@@ -1,0 +1,44 @@
+:root {
+  /* Brand palette */
+  --brand-pink-600: #f72585;
+  --brand-fuchsia-500: #ca31b3;
+  --brand-purple-700: #5b2679;
+  --brand-navy-800: #003554;
+  --brand-orange-500: #ff4800;
+  --brand-orange-400: #ff6d00;
+  --brand-red-600: #fe0000;
+  --brand-blue-600: #0c63e7;
+  --brand-sky-500: #09a6f3;
+  --brand-sky-400: #07c8f9;
+
+  /* Semantic aliases */
+  --color-primary: var(--brand-purple-700);
+  --color-secondary: var(--brand-pink-600);
+  --color-accent: var(--brand-orange-500);
+  --color-info: var(--brand-blue-600);
+  --color-success: #10b981;
+  --color-warning: var(--brand-orange-400);
+  --color-danger: var(--brand-red-600);
+  --color-surface: #111111;
+  --color-on-surface: #ffffff;
+}
+
+/* Reveal.js helpers: apply as class="bg-primary" or text colors */
+.bg-primary { background-color: var(--color-primary) !important; }
+.bg-secondary { background-color: var(--color-secondary) !important; }
+.bg-accent { background-color: var(--color-accent) !important; }
+.bg-info { background-color: var(--color-info) !important; }
+.bg-warning { background-color: var(--color-warning) !important; }
+.bg-danger { background-color: var(--color-danger) !important; }
+.bg-surface { background-color: var(--color-surface) !important; }
+
+.text-on-surface { color: var(--color-on-surface) !important; }
+.text-inverse { color: #000000 !important; }
+
+/* Allow using data attributes with CSS variables by leveraging currentColor */
+.reveal section { color: var(--color-on-surface); }
+
+/* Optional: tweak code block contrast on dark backgrounds */
+.reveal pre code { background: rgba(0,0,0,0.35); }
+
+
