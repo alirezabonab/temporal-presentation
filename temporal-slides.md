@@ -49,7 +49,7 @@ You talk to Workflows via Client (start, signal, query, result).
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
 <!-- .slide: data-background-color="var(--brand-purple-700)" -->
 
-# Step 1 — Install & Run Local Temporal
+# Install & Run Local Temporal
 
 <pre>
 <code class="bash" data-line-numbers="1-9">brew install temporal   # macOS
@@ -67,7 +67,7 @@ npm i @temporalio/client @temporalio/worker @temporalio/workflow nanoid axios
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
 <!-- .slide: data-background-color="var(--brand-fuchsia-500)" -->
 
-# Step 2 — Project Layout
+# Project Layout
 
 <pre>
 <code class="bash" data-line-numbers="1-10">src/
@@ -81,34 +81,11 @@ npm i @temporalio/client @temporalio/worker @temporalio/workflow nanoid axios
 
 ---
 
-<!-- ## Slide (Section: temporal-typescript-onboarding) -->
-<!-- .slide: data-background-color="var(--brand-navy-800)" -->
-
-# Step 3 — `shared.ts`
-
-<pre>
-<code class="typescript" data-line-numbers="1-20">export interface LoanApplication {
-  customerId: string;
-  amount: number;
-  termMonths: number;
-  bankId: string;
-}
-
-export type LoanDecision = 'OFFER' | 'REJECTED' | 'PENDING';
-
-export const TASK_QUEUE = 'loan-app-task-queue';
-
-// Mock sleep for demo
-export const sleep = (ms: number) =&gt; new Promise((r) =&gt; setTimeout(r, ms));
-</code>
-</pre>
-
----
 
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
-<!-- .slide: data-background-color="var(--brand-orange-400)" -->
+<!-- .slide: data-background-color="var(--brand-blue-600)" -->
 
-# Step 4 — `activities.ts` (Bank API + DB)
+# `activities.ts` (Bank API + DB)
 
 <pre>
 <code class="typescript" data-line-numbers="1-35">import axios from 'axios';
@@ -142,9 +119,9 @@ export async function publishEvent(app: LoanApplication, decision: LoanDecision)
 ---
 
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
-<!-- .slide: data-background-color="var(--brand-red-600)" -->
+<!-- .slide: data-background-color="var(--brand-sky-500)" -->
 
-# Step 5 — `workflows.ts` (basic orchestration)
+# `workflows.ts` (basic orchestration)
 
 <pre>
 <code class="typescript" data-line-numbers="1-45">import * as wf from '@temporalio/workflow';
@@ -157,12 +134,12 @@ const { sendToBank, checkBankDecision, persistDecision, publishEvent } =
   });
 
 export async function loanApplicationWorkflow(app: LoanApplication): Promise&lt;void&gt; {
-  // Step 1: send application
+  // send application
   await sendToBank(app);
 
   let decision: LoanDecision = 'PENDING';
 
-  // Step 2: poll every 30s until offer/rejected
+  // poll every 30s until offer/rejected
   await wf.condition(
     async () =&gt; {
       decision = await checkBankDecision(app);
@@ -171,10 +148,10 @@ export async function loanApplicationWorkflow(app: LoanApplication): Promise&lt;
     '30s' // check every 30 seconds
   );
 
-  // Step 3: persist result
+  // persist result
   await persistDecision(app, decision);
 
-  // Step 4: publish event
+  // publish event
   await publishEvent(app, decision);
 }
 </code>
@@ -185,7 +162,7 @@ export async function loanApplicationWorkflow(app: LoanApplication): Promise&lt;
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
 <!-- .slide: data-background-color="var(--brand-blue-600)" -->
 
-# Step 6 — `worker.ts`
+# `worker.ts`
 
 <pre>
 <code class="typescript" data-line-numbers="1-25">import { Worker, NativeConnection } from '@temporalio/worker';
@@ -216,9 +193,9 @@ run().catch((err) =&gt; {
 ---
 
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
-<!-- .slide: data-background-color="var(--brand-sky-500)" -->
+<!-- .slide: data-background-color="var(--brand-purple-700)" -->
 
-# Step 7 — `client.ts`
+# `client.ts`
 
 Workflow starts when **loan application created event** arrives.
 
@@ -261,9 +238,9 @@ onApplicationCreated({
 ---
 
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
-<!-- .slide: data-background-color="var(--brand-sky-400)" -->
+<!-- .slide: data-background-color="var(--brand-red-600)" -->
 
-# Step 8 — Extending with Signal & Query
+# Extending with Signal & Query
 
 - **Query**: check current decision status (without waiting for workflow to complete).  
 - **Signal**: allow external system to cancel/stop workflow (e.g., customer withdrew).
@@ -271,9 +248,9 @@ onApplicationCreated({
 ---
 
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
-<!-- .slide: data-background-color="var(--brand-pink-600)" -->
+<!-- .slide: data-background-color="var(--brand-sky-400)" -->
 
-# Step 9 — Adding Signal & Query to Workflow
+# Adding Signal & Query to Workflow
 
 <pre>
 <code class="typescript" data-line-numbers="1,2,6,8,9,16">export const cancelSignal = wf.defineSignal('cancel');
@@ -312,7 +289,7 @@ export async function loanApplicationWorkflow(app: LoanApplication): Promise&lt;
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
 <!-- .slide: data-background-color="var(--brand-fuchsia-500)" -->
 
-# Step 10 — Using Signal & Query from Client
+# Using Signal & Query from Client
 
 <pre>
 <code class="typescript" data-line-numbers="1-30">import { cancelSignal, statusQuery } from './workflows';
@@ -356,7 +333,7 @@ async function interact(client: Client, workflowId: string) {
 
 - Temporal is perfect for long-running business processes or state machines.  
 - Temporal Workflows can run for days, handle retries, timers, signals.  
-- Temporal allows **step-by-step orchestration** (fan-out, waiting, compensation).  
+- Temporal allows * (fan-out, waiting, compensation).  
 - Temporal activities are **idempotent & retried automatically**, Bull retries are simpler but less robust. 
 - Temporal supports **built-in cron & schedules** across workflows.   
 - Temporal scales horizontally with many workers in different languages.  
@@ -364,3 +341,23 @@ async function interact(client: Client, workflowId: string) {
 - Temporal can **continue workflows across versions** (workflow versioning).  
 
 
+---
+
+<!-- ## Slide (Section: temporal-typescript-onboarding) -->
+<!-- .slide: data-background-color="var(--brand-orange-500)" -->
+
+# Activity Timeline
+
+![Activity Timeline](./assets/img/activity-timeline.png)
+
+
+---
+
+
+
+<!-- ## Slide (Section: temporal-typescript-onboarding) -->
+<!-- .slide: data-background-color="var(--brand-blue-600)" -->
+
+# Activity Progress
+
+![workflow-progress](./assets/img/workflow-progress.png)
