@@ -12,7 +12,7 @@
 -->
 
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
-<!-- .slide: data-background-color="#ff4800" -->
+<!-- .slide: data-background-color="var(--brand-orange-500)" -->
 
 # From Bull to Temporal — Mental Model
 
@@ -36,7 +36,7 @@ You talk to Workflows via Client (start, signal, query, result).
 ---
 
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
-<!-- .slide: data-background-color="#f72585" -->
+<!-- .slide: data-background-color="var(--brand-pink-600)" -->
 
 # Simplified Loan Application Workflow with Temporal
 
@@ -47,7 +47,7 @@ You talk to Workflows via Client (start, signal, query, result).
 ---
 
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
-<!-- .slide: data-background-color="#5b2679" -->
+<!-- .slide: data-background-color="var(--brand-purple-700)" -->
 
 # Step 1 — Install & Run Local Temporal
 
@@ -65,7 +65,7 @@ npm i @temporalio/client @temporalio/worker @temporalio/workflow nanoid axios
 ---
 
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
-<!-- .slide: data-background-color="#ca31b3" -->
+<!-- .slide: data-background-color="var(--brand-fuchsia-500)" -->
 
 # Step 2 — Project Layout
 
@@ -82,7 +82,7 @@ npm i @temporalio/client @temporalio/worker @temporalio/workflow nanoid axios
 ---
 
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
-<!-- .slide: data-background-color="#003554" -->
+<!-- .slide: data-background-color="var(--brand-navy-800)" -->
 
 # Step 3 — `shared.ts`
 
@@ -106,7 +106,7 @@ export const sleep = (ms: number) =&gt; new Promise((r) =&gt; setTimeout(r, ms))
 ---
 
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
-<!-- .slide: data-background-color="#ff6d00" -->
+<!-- .slide: data-background-color="var(--brand-orange-400)" -->
 
 # Step 4 — `activities.ts` (Bank API + DB)
 
@@ -142,7 +142,7 @@ export async function publishEvent(app: LoanApplication, decision: LoanDecision)
 ---
 
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
-<!-- .slide: data-background-color="#fe0000" -->
+<!-- .slide: data-background-color="var(--brand-red-600)" -->
 
 # Step 5 — `workflows.ts` (basic orchestration)
 
@@ -183,7 +183,7 @@ export async function loanApplicationWorkflow(app: LoanApplication): Promise&lt;
 ---
 
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
-<!-- .slide: data-background-color="#0c63e7" -->
+<!-- .slide: data-background-color="var(--brand-blue-600)" -->
 
 # Step 6 — `worker.ts`
 
@@ -216,7 +216,7 @@ run().catch((err) =&gt; {
 ---
 
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
-<!-- .slide: data-background-color="#09a6f3" -->
+<!-- .slide: data-background-color="var(--brand-sky-500)" -->
 
 # Step 7 — `client.ts`
 
@@ -261,7 +261,7 @@ onApplicationCreated({
 ---
 
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
-<!-- .slide: data-background-color="#07c8f9" -->
+<!-- .slide: data-background-color="var(--brand-sky-400)" -->
 
 # Step 8 — Extending with Signal & Query
 
@@ -271,7 +271,7 @@ onApplicationCreated({
 ---
 
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
-<!-- .slide: data-background-color="#f72585" -->
+<!-- .slide: data-background-color="var(--brand-pink-600)" -->
 
 # Step 9 — Adding Signal & Query to Workflow
 
@@ -310,7 +310,7 @@ export async function loanApplicationWorkflow(app: LoanApplication): Promise&lt;
 ---
 
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
-<!-- .slide: data-background-color="#ca31b3" -->
+<!-- .slide: data-background-color="var(--brand-fuchsia-500)" -->
 
 # Step 10 — Using Signal & Query from Client
 
@@ -337,7 +337,7 @@ async function interact(client: Client, workflowId: string) {
 ---
 
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
-<!-- .slide: data-background-color="#5b2679" -->
+<!-- .slide: data-background-color="var(--brand-purple-700)" -->
 
 # Bull  
 
@@ -350,7 +350,7 @@ async function interact(client: Client, workflowId: string) {
 ---
 
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
-<!-- .slide: data-background-color="#5b2679" -->
+<!-- .slide: data-background-color="var(--brand-purple-700)" -->
 
 # Temporal
 

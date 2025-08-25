@@ -1,15 +1,16 @@
 :root {
   /* Brand palette */
-  --brand-pink-600: #f72585;
-  --brand-fuchsia-500: #ca31b3;
-  --brand-purple-700: #5b2679;
-  --brand-navy-800: #003554;
-  --brand-orange-500: #ff4800;
-  --brand-orange-400: #ff6d00;
-  --brand-red-600: #fe0000;
-  --brand-blue-600: #0c63e7;
-  --brand-sky-500: #09a6f3;
-  --brand-sky-400: #07c8f9;
+  /* Dark, vibrant, high-contrast hues for white text */
+  --brand-pink-600: #9d174d; /* rose-800 */
+  --brand-fuchsia-500: #86198f; /* fuchsia-800 */
+  --brand-purple-700: #4c1d95; /* violet-800 */
+  --brand-navy-800: #0b3a53; /* teal-navy */
+  --brand-orange-500: #c2410c; /* orange-700 */
+  --brand-orange-400: #9a3412; /* orange-800 */
+  --brand-red-600: #991b1b; /* red-800 */
+  --brand-blue-600: #1e3a8a; /* blue-800 */
+  --brand-sky-500: #075985; /* sky-800 */
+  --brand-sky-400: #0c4a6e; /* cyan-900-ish */
 
   /* Semantic aliases */
   --color-primary: var(--brand-purple-700);
@@ -19,7 +20,7 @@
   --color-success: #10b981;
   --color-warning: var(--brand-orange-400);
   --color-danger: var(--brand-red-600);
-  --color-surface: #111111;
+  --color-surface: #0b0b0b;
   --color-on-surface: #ffffff;
 }
 
