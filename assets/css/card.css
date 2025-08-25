@@ -1,0 +1,159 @@
+.reveal .slides {
+}
+
+/* Card layout for all slides */
+.reveal .slides section {
+}
+
+/* Font smoothing and sharpness for all text elements */
+body,
+.reveal,
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6,
+.reveal p,
+.reveal li,
+.reveal span,
+.reveal div,
+.reveal strong,
+.reveal em {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-smooth: always;
+  -webkit-font-feature-settings: 'liga', 'kern';
+  font-feature-settings: 'liga', 'kern';
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.reveal {
+  font-size: 16px;
+}
+
+/* Reset RevealJS defaults to work better with Tailwind */
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0 0 20px 0;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  text-shadow: none;
+  word-wrap: break-word;
+  text-align: inherit;
+}
+
+.reveal h1 {
+  font-size: 2.5em;
+  font-weight: 700;
+  /* margin-bottom: 30px; */
+}
+
+.reveal h2 {
+  font-size: 2em;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.reveal h3 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.reveal p {
+  font-size: 1em;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+}
+
+.reveal ul,
+.reveal ol {
+  font-size: 1.5em;
+  line-height: 1.6;
+  margin: 0 0 20px 20px;
+}
+
+.reveal img {
+  max-width: 100%;
+  max-height: 700px;
+  min-height: 500px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+  display: block;
+  border: none;
+  background: none;
+}
+
+/* Code blocks */
+.reveal pre {
+  font-size: 0.8em;
+  border-radius: 10px;
+  margin: 20px 0;
+  min-height: 50vh;
+  max-width: 50vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reveal pre code {
+  min-height: 50vh !important;
+  max-width: 50vw;
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+  overflow: visible !important;
+  font-size: 1em !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* Inline code styling only (not code blocks) */
+.reveal p code,
+.reveal li code,
+.reveal td code,
+.reveal th code {
+  background: #f8f9fa;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #e91e63;
+}
+
+/* Style image captions (text in italics after images) */
+.reveal img + em,
+.reveal img + p em {
+  display: block;
+  text-align: center;
+  font-size: 0.7em;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  max-width: 50vw;
+  font-style: italic;
+}
+
+.reveal p em {
+  display: block;
+  text-align: center;
+  font-size: 1em;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50vw;
+  font-style: italic;
+}

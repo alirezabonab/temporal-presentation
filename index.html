@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>AI Workshop Presentation</title>
+
+    <!-- RevealJS CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/theme/black.css"
+      id="theme"
+    />
+    <!-- Add this in the <head> of your HTML -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/humanoid-dark.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+   
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="stylesheet" href="assets/css/card.css" />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Slides will be loaded from slides.md -->
+        <section
+          data-markdown="temporal-slides.md"
+          data-separator="^\n---\n$"
+          data-separator-notes="^Notes?:"
+        ></section>
+      </div>
+    </div>
+
+    <!-- RevealJS JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/math/math.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/zoom/zoom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/search/search.js"></script>
+
+    <script>
+      // Initialize RevealJS
+      Reveal.initialize({
+        hash: true,
+        transition: 'slide',
+        transitionSpeed: 'default',
+        backgroundTransition: 'fade',
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+          RevealZoom,
+          RevealSearch,
+        ],
+
+        // Markdown plugin configuration
+        markdown: {
+          smartypants: true,
+        },
+
+        // Math plugin configuration
+        math: {
+          mathjax:
+            'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: [
+              'script',
+              'noscript',
+              'style',
+              'textarea',
+              'pre',
+              'code',
+            ],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process',
+          },
+        },
+
+        // Controls and navigation
+        controls: true,
+        controlsTutorial: true,
+        controlsLayout: 'bottom-right',
+        controlsBackArrows: 'faded',
+        center: true,
+        touch: true,
+        loop: false,
+        rtl: false,
+        navigationMode: 'default',
+        shuffle: false,
+        fragments: true,
+        fragmentInURL: true,
+        embedded: false,
+        help: true,
+        pause: true,
+        showNotes: false,
+        autoPlayMedia: null,
+        preloadIframes: null,
+        autoAnimate: true,
+        autoAnimateMatcher: null,
+        autoAnimateEasing: 'ease',
+        autoAnimateDuration: 1.0,
+        autoAnimateUnmatched: true,
+
+        // Presentation size
+        width: '100%',
+        height: '100%',
+        margin: 0.01,
+        minScale: 1,
+        maxScale: 1,
+
+        // Keyboard shortcuts
+        keyboard: {
+          13: 'next', // go to the next slide when the ENTER key is pressed
+          27: function () {}, // do something custom when ESC is pressed
+          32: null, // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding)
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "ai-workshop-presentation",
+  "version": "1.0.0",
+  "description": "AI Workshop Presentation",
+  "scripts": {
+    "start": "serve ."
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}
