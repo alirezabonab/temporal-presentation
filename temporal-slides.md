@@ -18,7 +18,7 @@
 
 <pre>
 <code class="markdown" data-line-numbers="1-13">Bull ➜ Temporal (one-to-one intuition)
-- Queue name          ➜ Task Queue (string)
+- Queue name           ➜ Task Queue (string)
 - Job                  ➜ Workflow Execution (durable state machine)
 - Processor            ➜ Worker (runs Workflows/Activities)
 - Job data             ➜ Workflow arguments / Signals / Updates
