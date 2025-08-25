@@ -36,7 +36,7 @@ You talk to Workflows via Client (start, signal, query, result).
 ---
 
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
-<!-- .slide: data-background-color="#f72585" -->
+<!-- .slide: data-background-color="#fff" -->
 
 # Simplified Loan Application Workflow with Temporal
 
