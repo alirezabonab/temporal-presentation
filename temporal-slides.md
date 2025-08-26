@@ -11,6 +11,16 @@
  #07c8f9
 -->
 
+
+<!-- ## Slide (Section: temporal-typescript-onboarding) -->
+<!-- .slide: data-background-color="var(--brand-blue-600)" -->
+
+# Introduction to Temporal
+
+### Durable Execution Engine 
+
+---
+
 <!-- ## Slide (Section: temporal-typescript-onboarding) -->
 <!-- .slide: data-background-color="var(--brand-orange-500)" -->
 
@@ -361,3 +371,12 @@ async function interact(client: Client, workflowId: string) {
 # Activity Progress
 
 ![workflow-progress](./assets/img/workflow-progress.png)
+
+
+---
+
+<!-- ## Slide (Section: temporal-typescript-onboarding) -->
+<!-- .slide: data-background-color="var(--brand-red-600)" -->
+
+
+# Questions?
